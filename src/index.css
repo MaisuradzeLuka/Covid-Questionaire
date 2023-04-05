@@ -4,6 +4,36 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "BPG Arial";
+  src: url("./fonts/bpg_arial_2009_[FONTS.GE]/bpg_arial_2009.ttf")
+      format("woff2"),
+    url("./fonts/bpg_arial_2009_[FONTS.GE]/bpg_arial_2009.ttf") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   line-height: 1.5;
+  font-family: "BPG Arial";
+  background-color: #f0efef;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.pText {
+  display: none;
+}
+
+.error {
+  color: crimson;
+  display: inline;
+}
+
+/* .error {
+  color: crimson;
+  /* display: none; */
+/* } */

@@ -1,0 +1,16 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 50px;
+}
+
+.section h2 {
+  font-size: 35px;
+  width: 200px;
+  text-align: center;
+  letter-spacing: 1px;
+  cursor: pointer;
+}

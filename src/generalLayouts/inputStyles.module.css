@@ -1,0 +1,34 @@
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.inputWrapper label {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.inputWrapper input {
+  height: 50px;
+  font-size: 18px;
+  padding-left: 15px;
+  outline: none;
+  width: 520px;
+  background-color: transparent;
+  border: 1px solid black;
+}
+
+.pText {
+  color: crimson;
+  /* display: none; */
+}
+
+/* .error {
+  display: inline !important;
+} */
+
+.sucess {
+  display: none;
+}

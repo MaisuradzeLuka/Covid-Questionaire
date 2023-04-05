@@ -1,0 +1,69 @@
+.section {
+  width: 1520px;
+  margin: 50px auto;
+}
+
+.formWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 50px;
+}
+
+.inputWrapper label {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.inputWrapper input {
+  height: 50px;
+  font-size: 18px;
+  padding-left: 15px;
+  outline: none;
+  width: 520px;
+  background-color: transparent;
+  border: 1px solid black;
+}
+
+aside {
+  position: relative;
+}
+
+.yStripe {
+  position: absolute;
+  top: 230px;
+  left: 150px;
+  z-index: -1;
+}
+
+.sucess {
+  color: crimson;
+}
+
+.warning {
+  width: 400px;
+  font-size: 22px;
+  margin-top: 250px;
+  position: relative;
+}
+
+.warning::before {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 1px;
+  background-color: black;
+  top: -20px;
+}
+
+.icon {
+  font-size: 50px;
+  margin: 0 auto;
+  width: 100%;
+}
