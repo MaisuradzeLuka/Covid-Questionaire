@@ -1,6 +1,7 @@
 .section {
   width: 1520px;
   margin: 50px auto;
+  position: relative;
 }
 
 .formWrapper {
@@ -42,10 +43,6 @@ aside {
   z-index: -1;
 }
 
-.sucess {
-  color: crimson;
-}
-
 .warning {
   width: 400px;
   font-size: 22px;
@@ -62,8 +59,19 @@ aside {
   top: -20px;
 }
 
-.icon {
+.btn {
+  cursor: pointer;
   font-size: 50px;
-  margin: 0 auto;
-  width: 100%;
+  border: none;
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+}
+
+.timedWarning {
+  font-size: 30px;
+  left: 0;
+  top: 60%;
+  color: crimson;
+  position: absolute;
 }

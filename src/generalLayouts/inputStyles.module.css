@@ -17,18 +17,6 @@
   outline: none;
   width: 520px;
   background-color: transparent;
-  border: 1px solid black;
-}
-
-.pText {
-  color: crimson;
-  /* display: none; */
-}
-
-/* .error {
-  display: inline !important;
-} */
-
-.sucess {
-  display: none;
+  border: 1px solid rgb(156, 156, 156);
+  border-radius: 8px;
 }

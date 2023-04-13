@@ -6,6 +6,9 @@ const useInput = (validation) => {
 
   const onChangeHandler = (e) => {
     setInputValue(e.target.value);
+  };
+
+  const onBlurHandler = () => {
     setInputIsTouched(true);
   };
 
@@ -18,6 +21,7 @@ const useInput = (validation) => {
   return {
     inputValue,
     onChangeHandler,
+    onBlurHandler,
     hasError,
     inputValidation,
   };

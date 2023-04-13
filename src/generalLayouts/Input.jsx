@@ -10,6 +10,7 @@ const Input = ({
   value,
   onChange,
   className,
+  onBlur,
 }) => {
   return (
     <div className={inputStyles.inputWrapper}>
@@ -20,8 +21,9 @@ const Input = ({
         id={id}
         value={value}
         onChange={onChange}
+        onBlur={onBlur}
       />
-      <p className={`${inputStyles.pText} ${className}`}>{text}</p>
+      <p className={className}>{text}</p>
     </div>
   );
 };
