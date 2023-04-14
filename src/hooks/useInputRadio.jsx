@@ -1,23 +1,26 @@
 import { useState } from "react";
 
-const useInputRadio = ({ antiBodysIsValid, dateIsValid, numIsValid }) => {
+const useInputRadio = (dateIsValid) => {
   const [showTest, setShowTest] = useState(false);
   const [value, setValue] = useState("");
   const [selectedOption, setSelectedOption] = useState("");
 
   let formIsValid = false;
   if (
-    (selectedOption !== "" && numIsValid && antiBodysIsValid) ||
-    (selectedOption !== "" && antiBodysIsValid)
+    (selectedOption.name === "hadCovid" &&
+      selectedOption.value !== "hadCovid") ||
+    selectedOption.value === "hadTest"
   ) {
     formIsValid = true;
-  } else if (selectedOption !== "") {
+  } else if (selectedOption.value === "hadntTest" && dateIsValid) {
     formIsValid = true;
+  } else {
+    formIsValid = false;
   }
 
   const changeHandler = (e) => {
     setValue(e.target.value);
-    setSelectedOption(e.target.value);
+    setSelectedOption(e.target);
     if (e.target.value === "hadCovid") {
       setShowTest(true);
       setSelectedOption("");

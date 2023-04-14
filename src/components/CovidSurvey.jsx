@@ -21,27 +21,17 @@ const CovidSurvey = () => {
     onBlurHandler: dateBlurHandler,
   } = useInput((value) => value.trim() !== "");
 
-  const {
-    inputValue: numValue,
-    onChangeHandler: numChangeHandler,
-    hasError: numInputClass,
-    inputValidation: numIsValid,
-    onBlurHandler: numBlurHandler,
-  } = useInput((value) => value.trim() !== "");
+  const { inputValue: numValue, onChangeHandler: numChangeHandler } = useInput(
+    (value) => value.trim() !== ""
+  );
 
   const {
     inputValue: antiBodysValue,
     onChangeHandler: antiBodysChangeHandler,
-    hasError: antiBodysInputClass,
-    inputValidation: antiBodysIsValid,
-    onBlurHandler: antiBodysBlurHandler,
   } = useInput((value) => value.trim() !== "");
 
-  const { changeHandler, value, formIsValid, showTest } = useInputRadio(
-    antiBodysIsValid,
-    dateIsValid,
-    numIsValid
-  );
+  const { changeHandler, value, formIsValid, showTest } =
+    useInputRadio(dateIsValid);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -74,7 +64,7 @@ const CovidSurvey = () => {
             <div>
               <p className={covidStyles.numInputWrapper}>
                 თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და
-                ანტისხეულების რაოდენობა*
+                ანტისხეულების რაოდენობა
               </p>
               <Input
                 id="number"
@@ -82,19 +72,13 @@ const CovidSurvey = () => {
                 placeholder="რიცხვი"
                 value={numValue}
                 onChange={numChangeHandler}
-                onBlur={numBlurHandler}
-                className={numInputClass}
-                text="გთხობთ გამოიყენოთ მხოლოდ რიცხვები"
               />
               <Input
                 id="number"
                 type="number"
                 placeholder="ანტისხეულების რაოდენობა"
-                value={dateValue}
-                onChange={dateChangeHandler}
-                onBlur={dateBlurHandler}
-                className={dateInputClass}
-                text="გთხობთ გამოიყენოთ მხოლოდ რიცხვები"
+                value={antiBodysValue}
+                onChange={antiBodysChangeHandler}
               />
             </div>
           )}
@@ -108,10 +92,10 @@ const CovidSurvey = () => {
                 id="date"
                 type="date"
                 placeholder="ანტისხეულების რაოდენობა"
-                value={antiBodysValue}
-                onChange={antiBodysChangeHandler}
-                onBlur={antiBodysBlurHandler}
-                className={antiBodysInputClass}
+                value={dateValue}
+                onBlur={dateBlurHandler}
+                onChange={dateChangeHandler}
+                className={dateInputClass}
                 text="გთხობთ გამოიყენოთ მხოლოდ რიცხვები"
               />
             </>
