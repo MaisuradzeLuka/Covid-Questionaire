@@ -17,6 +17,7 @@ const useInputRadio = (dateIsValid) => {
   } else {
     formIsValid = false;
   }
+  let error = "";
 
   const changeHandler = (e) => {
     setValue(e.target.value);
@@ -29,7 +30,7 @@ const useInputRadio = (dateIsValid) => {
     }
   };
 
-  return { changeHandler, value, formIsValid, showTest };
+  return { changeHandler, value, formIsValid, showTest, error };
 };
 
 export default useInputRadio;

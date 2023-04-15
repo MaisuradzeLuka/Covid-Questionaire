@@ -12,24 +12,15 @@
 
 .logo {
   position: absolute;
-  top: -15px;
-  left: 35px;
+  top: 60px;
+  left: 100px;
   z-index: -1;
-}
-
-.numInputWrapper {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 20px;
 }
 
 .btn {
   cursor: pointer;
   font-size: 50px;
   border: none;
-  /* position: absolute; */
-  /* bottom: -50px; */
-  /* left: 50%; */
 }
 
 .btnWrapper {
@@ -49,22 +40,11 @@
   position: absolute;
 }
 
-.linkWrapper {
-  display: inline-block;
-  width: 300px;
-  margin-left: 50px;
-  font-weight: normal;
+.textWrapper {
   font-size: 22px;
+  margin-bottom: 100px;
 }
 
-.linkWrapper2 {
-  display: inline-block;
-  width: 600px;
-  margin-left: 50px;
-  font-weight: normal;
-  font-size: 22px;
-}
-
-.link {
-  color: rgba(18, 137, 174, 1);
+.text {
+  margin-bottom: 50px;
 }

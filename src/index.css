@@ -29,11 +29,6 @@ a {
 }
 
 .error {
-  color: crimson;
+  color: crimson !important;
   display: inline;
 }
-
-/* .error {
-  color: crimson;
-  /* display: none; */
-/* } */

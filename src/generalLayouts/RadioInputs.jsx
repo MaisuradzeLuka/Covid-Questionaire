@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import radioStyles from "./radioStyles.module.css";
 
-const RadioInputs = ({ props, title, changeHandler }) => {
+const RadioInputs = ({ props, title, changeHandler, error }) => {
   return (
     <div className={radioStyles.radioWrapper}>
-      {title}
+      <p className={error}>{title}</p>
       {props.map((elem, i) => {
         return (
           <div key={i}>

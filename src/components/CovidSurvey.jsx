@@ -30,7 +30,7 @@ const CovidSurvey = () => {
     onChangeHandler: antiBodysChangeHandler,
   } = useInput((value) => value.trim() !== "");
 
-  const { changeHandler, value, formIsValid, showTest } =
+  const { changeHandler, value, formIsValid, showTest, error } =
     useInputRadio(dateIsValid);
 
   const handleSubmit = (e) => {
@@ -52,12 +52,14 @@ const CovidSurvey = () => {
             props={data[0]}
             title="გაქვს გადატანილი Covid-19?*"
             changeHandler={changeHandler}
+            error={error}
           />
           {showTest && (
             <RadioInputs
               props={data[1]}
               title="ანტისხეულების ტესტი გაქვს გაკეთებული?*"
               changeHandler={changeHandler}
+              error={error}
             />
           )}
           {value === "hadTest" && (
