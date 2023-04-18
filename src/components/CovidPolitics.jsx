@@ -8,23 +8,42 @@ import useInput from "../hooks/useInput";
 import Header from "../generalLayouts/Header";
 import covidStyles from "./covidPolitics.module.css";
 import data from "../data/data";
+import { useState } from "react";
 
 const CovidPolitics = () => {
   const navigate = useNavigate();
   const { message, setMessage } = useWarning("");
+  const [selectedOption, setSelectedOption] = useState({
+    option1: false,
+    option2: false,
+  });
 
-  const { changeHandler, value, formIsValid, showTest } = useInputRadio("");
+  const changeHandler = (e) => {
+    const name = e.target.name;
+    if (name === "meetingFrequency") {
+      selectedOption.option1 = true;
+    } else {
+      selectedOption.option1 = false;
+    }
+  };
 
-  const {
-    inputValue: nameValue,
-    onChangeHandler: nameChangeHandler,
-    hasError: nameInputClass,
-    inputValidation: nameIsValid,
-    onBlurHandler: nameBlurHandler,
-  } = useInput(() => {});
+  const changeHandler2 = (e) => {
+    const name = e.target.name;
+    if (name === "officeWork") {
+      selectedOption.option2 = true;
+    } else {
+      selectedOption.option2 = false;
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (selectedOption.option1 && selectedOption.option2) {
+      navigate("/thankYou", { replace: true });
+    } else {
+      setMessage("გთხოვთ შეავსოთ სავალდებულო ველები");
+    }
   };
   return (
     <section className={covidStyles.section}>
@@ -46,33 +65,37 @@ const CovidPolitics = () => {
           <RadioInputs
             props={data[5]}
             title="რა სიხშირით შეიძლება გვქონდეს საერთო არაფორმალური ონლაინ შეხვედრები, სადაც ყველა სურვილისამებრ ჩაერთვება?*"
-            // changeHandler={changeHandler}
+            changeHandler={changeHandler}
           />
           <RadioInputs
             props={data[6]}
             title="კვირაში რამდენი დღე ისურვებდი ოფისიდან მუშაობას?*"
-            // changeHandler={changeHandler}
+            changeHandler={changeHandler2}
           />
-          <Input
-            name={"რას ფიქრობ ფიზიკურ შეკრებებზე?"}
-            id={"name"}
-            type={"text"}
-            // value={nameValue}
-            // onChange={nameChangeHandler}
-            // onBlur={nameBlurHandler}
-            // className={nameInputClass}
-          />
-          <Input
-            name={
-              "რას ფიქრობ არსებულ გარემოზე: რა მოგწონს, რას დაამატებდი, რას შეცვლიდი?"
-            }
-            id={"name"}
-            type={"text"}
-            // value={nameValue}
-            // onChange={nameChangeHandler}
-            // onBlur={nameBlurHandler}
-            // className={nameInputClass}
-          />
+
+          <div className={covidStyles.inputWrapper}>
+            <label htmlFor="meetings">რას ფიქრობ ფიზიკურ შეკრებებზე?</label>
+            <textarea
+              name="meetings"
+              id="meetings"
+              cols="30"
+              rows="10"
+              className={covidStyles.input}
+            ></textarea>
+          </div>
+          <div className={covidStyles.inputWrapper}>
+            <label htmlFor="enviroments">
+              რას ფიქრობ არსებულ გარემოზე: რა მოგწონს, რას დაამატებდი, რას
+              შეცვლიდი?
+            </label>
+            <textarea
+              name="enviroments"
+              id="enviroments"
+              cols="30"
+              rows="10"
+              className={covidStyles.input}
+            ></textarea>
+          </div>
           <div className={covidStyles.btnWrapper}>
             <Link to="/vaccine" className={covidStyles.btn}>
               <AiOutlineLeft className={covidStyles.icon} />

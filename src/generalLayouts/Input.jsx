@@ -11,6 +11,7 @@ const Input = ({
   onChange,
   className,
   onBlur,
+  inputClass,
 }) => {
   return (
     <div className={inputStyles.inputWrapper}>
@@ -22,6 +23,7 @@ const Input = ({
         value={value}
         onChange={onChange}
         onBlur={onBlur}
+        className={inputClass}
       />
       <p className={className}>{text}</p>
     </div>

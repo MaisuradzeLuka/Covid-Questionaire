@@ -4,6 +4,7 @@ import PersonalInfo from "./components/PersonalInfo";
 import CovidSurvey from "./components/CovidSurvey";
 import Vaccine from "./components/Vaccine";
 import CovidPolitics from "./components/CovidPolitics";
+import ThankYou from "./components/ThankYou";
 
 const router = createBrowserRouter([
   { path: "/", element: <Welcome /> },
@@ -11,6 +12,7 @@ const router = createBrowserRouter([
   { path: "/covidsurvey", element: <CovidSurvey /> },
   { path: "/vaccine", element: <Vaccine /> },
   { path: "/covidPolitics", element: <CovidPolitics /> },
+  { path: "/thankYou", element: <ThankYou /> },
 ]);
 
 const App = () => {

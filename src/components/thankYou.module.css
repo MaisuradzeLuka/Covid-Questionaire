@@ -1,0 +1,14 @@
+.section {
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section h1 {
+  display: inline-block;
+  color: white;
+  font-size: 100px;
+  letter-spacing: 20px;
+}
