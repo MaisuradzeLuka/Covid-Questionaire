@@ -19,19 +19,19 @@ const CovidSurvey = () => {
     hasError: dateInputClass,
     inputValidation: dateIsValid,
     onBlurHandler: dateBlurHandler,
-  } = useInput((value) => value.trim() !== "");
+  } = useInput((value) => value.trim() !== "", "date");
 
   const { inputValue: numValue, onChangeHandler: numChangeHandler } = useInput(
-    (value) => value.trim() !== ""
+    (value) => value.trim() !== "",
+    "num"
   );
 
   const {
     inputValue: antiBodysValue,
     onChangeHandler: antiBodysChangeHandler,
-  } = useInput((value) => value.trim() !== "");
+  } = useInput((value) => value.trim() !== "", "antibody");
 
-  const { changeHandler, value, formIsValid, showTest, error } =
-    useInputRadio(dateIsValid);
+  const { changeHandler, formIsValid } = useInputRadio(dateIsValid);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,6 +43,8 @@ const CovidSurvey = () => {
     }
   };
 
+  const showTest = sessionStorage.getItem("hadCovid") === "hadCovid";
+
   return (
     <section className={covidStyles.section}>
       <Header page="2" />
@@ -52,17 +54,15 @@ const CovidSurvey = () => {
             props={data[0]}
             title="გაქვს გადატანილი Covid-19?*"
             changeHandler={changeHandler}
-            error={error}
           />
           {showTest && (
             <RadioInputs
               props={data[1]}
               title="ანტისხეულების ტესტი გაქვს გაკეთებული?*"
               changeHandler={changeHandler}
-              error={error}
             />
           )}
-          {value === "hadTest" && (
+          {sessionStorage.getItem("hadTest") === "hadTest" && showTest && (
             <div>
               <p className={covidStyles.numInputWrapper}>
                 თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და
@@ -84,7 +84,7 @@ const CovidSurvey = () => {
               />
             </div>
           )}
-          {value === "hadntTest" && (
+          {sessionStorage.getItem("hadTest") === "hadntTest" && showTest && (
             <>
               <p className={covidStyles.numInputWrapper}>
                 მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა

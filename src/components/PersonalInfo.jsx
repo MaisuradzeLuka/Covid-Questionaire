@@ -20,7 +20,7 @@ const PersonalInfo = () => {
     hasError: nameInputClass,
     inputValidation: nameIsValid,
     onBlurHandler: nameBlurHandler,
-  } = useInput((value) => letters.test(value));
+  } = useInput((value) => letters.test(value), "name");
 
   const {
     inputValue: lastnameValue,
@@ -28,7 +28,7 @@ const PersonalInfo = () => {
     hasError: lastnameInputClass,
     inputValidation: lastNameIsValid,
     onBlurHandler: lastNameBlurHandler,
-  } = useInput((value) => letters.test(value));
+  } = useInput((value) => letters.test(value), "lastName");
 
   const {
     inputValue: emailValue,
@@ -36,7 +36,7 @@ const PersonalInfo = () => {
     hasError: emailInputClass,
     inputValidation: emailIsValid,
     onBlurHandler: emailBlurHandler,
-  } = useInput((value) => email.test(value));
+  } = useInput((value) => email.test(value), "email");
 
   let formIsValid = false;
 

@@ -19,6 +19,7 @@ const Vaccine = () => {
   const changeHandler = (e) => {
     setShowQuestion(e.target.value);
     setShowLink("");
+    sessionStorage.setItem(e.target.name, e.target.value);
   };
 
   const changeValidationHandler = (e) => {
@@ -32,6 +33,8 @@ const Vaccine = () => {
       setValue(true);
       setShowLink("");
     }
+    console.log("g");
+    sessionStorage.setItem(e.target.name, e.target.value);
   };
 
   formIsValid = value;

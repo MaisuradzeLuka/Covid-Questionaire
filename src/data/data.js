@@ -14,7 +14,11 @@ const data = [
     { name: "hadVaccine", value: "hadntVaccine", text: "არა" },
   ],
   [
-    { name: "vaccineStage", value: "fisrtAndSecond", text: "უკვე აცრილი ხარ?" },
+    {
+      name: "vaccineStage",
+      value: "fisrtAndSecond",
+      text: "პირველი დოზა და დარეგისტრირებული ვარ მეორეზე",
+    },
     { name: "vaccineStage", value: "fullyVaccined", text: "სრულად აცრილი ვარ" },
     {
       name: "vaccineStage",
@@ -38,7 +42,11 @@ const data = [
   [
     { name: "meetingFrequency", value: "twiceWeek", text: "კვირაში ორჯერ" },
     { name: "meetingFrequency", value: "onceWeek", text: "კვირაში ერთხელ" },
-    { name: "meetingFrequency", value: "twiceWeek", text: "ორ კვირაში ერთხელ" },
+    {
+      name: "meetingFrequency",
+      value: "onceTwoWeek",
+      text: "ორ კვირაში ერთხელ",
+    },
     { name: "meetingFrequency", value: "onceMonth", text: "თვეში ერთხელ" },
   ],
   [

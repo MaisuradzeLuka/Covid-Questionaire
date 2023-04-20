@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const useInput = (validation) => {
-  const [inputValue, setInputValue] = useState("");
+const useInput = (validation, name) => {
+  const [inputValue, setInputValue] = useState(
+    sessionStorage.getItem(name) || ""
+  );
   const [inputIsTouched, setInputIsTouched] = useState(false);
 
   const onChangeHandler = (e) => {
     setInputValue(e.target.value);
   };
+
+  useEffect(() => {
+    sessionStorage.setItem(name, inputValue);
+  }, [inputValue]);
 
   const onBlurHandler = () => {
     setInputIsTouched(true);

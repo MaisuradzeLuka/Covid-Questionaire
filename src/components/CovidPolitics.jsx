@@ -8,7 +8,7 @@ import useInput from "../hooks/useInput";
 import Header from "../generalLayouts/Header";
 import covidStyles from "./covidPolitics.module.css";
 import data from "../data/data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const CovidPolitics = () => {
   const navigate = useNavigate();
@@ -17,23 +17,26 @@ const CovidPolitics = () => {
     option1: false,
     option2: false,
   });
+  const [checked, setChecked] = useState("");
 
   const changeHandler = (e) => {
     const name = e.target.name;
     if (name === "meetingFrequency") {
-      selectedOption.option1 = true;
+      setSelectedOption({ option1: true, option2: false });
     } else {
-      selectedOption.option1 = false;
+      setSelectedOption({ option1: false, option2: false });
     }
+    sessionStorage.setItem(name, e.target.value);
   };
 
   const changeHandler2 = (e) => {
     const name = e.target.name;
     if (name === "officeWork") {
-      selectedOption.option2 = true;
+      setSelectedOption({ option1: true, option2: true });
     } else {
-      selectedOption.option2 = false;
+      setSelectedOption({ option1: true, option2: false });
     }
+    sessionStorage.setItem(name, e.target.value);
   };
 
   const handleSubmit = (e) => {

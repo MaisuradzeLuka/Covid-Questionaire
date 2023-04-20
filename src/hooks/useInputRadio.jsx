@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 const useInputRadio = (dateIsValid) => {
-  const [showTest, setShowTest] = useState(false);
-  const [value, setValue] = useState("");
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState(
+    JSON.parse(sessionStorage.getItem("selectedOption")) || ""
+  );
 
   let formIsValid = false;
   if (
@@ -17,20 +17,18 @@ const useInputRadio = (dateIsValid) => {
   } else {
     formIsValid = false;
   }
-  let error = "";
 
   const changeHandler = (e) => {
-    setValue(e.target.value);
     setSelectedOption(e.target);
-    if (e.target.value === "hadCovid") {
-      setShowTest(true);
-      setSelectedOption("");
-    } else if (e.target.value === "hadntCovid" || e.target.value === "notYet") {
-      setShowTest(false);
-    }
+
+    sessionStorage.setItem(e.target.name, e.target.value);
+    sessionStorage.setItem(
+      "selectedOption",
+      JSON.stringify({ name: e.target.name, value: e.target.value })
+    );
   };
 
-  return { changeHandler, value, formIsValid, showTest, error };
+  return { changeHandler, formIsValid };
 };
 
 export default useInputRadio;
